@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>类似商品和服务区分表 2016版</title>
+<link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+	<div class="nav">
+		<a href="#">首页</a> &gt; <a href="#">目录</a>
+	</div>
+	<form>
+		<span>查找商品</span>
+		<input type="text" class="txt"><input type="button" value="查找" class="btn">
+		<a href="#">【规范商品校验】</a>
+	</form>
+	<div class="indexContent"></div>
+	
+	<ul class="glist"></ul>
+	<dl class="goods"></dl>
+	<h2>来源：XXXXXXXXXXXXX</h2>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var indexId = getUrlParam('indexId');
+			var url = "http://localhost/d/xapi/index.php?ct=index&ac=categoryByIndexId&indexId=" + indexId;
+			$.getJSON(url, function(reslut){
+				
+				var indexId = reslut['index']['indexId'];
+				var name = reslut['index']['name'];
+				var note = reslut['index']['note'];
+				var indexContent =  '<h4 id="indexId">第 '+ indexId +' 类</h4>' + '<p>'+name+'</p>' + '<p>【注释】</p>' + '<div class="notes">' + note + '</div>';
+				$(".indexContent").append(indexContent);
+
+				$.each(reslut['categroyBase'], function(i, field){
+					var glist = '<li>' + field['code'] + ' <a href="#">' + field['name'] + '</a><br></li>';
+					$(".glist").append(glist);
+				});
+				
+				$.each(reslut['categroyDetail'], function(i, field){
+					var dt = '<dt><a name="' + field['code'] + '" href="">'+field['code']+' <span>'+field['name']+'</span></a></dt>';
+					var dd = '<dd>' + field['detail']  + '</dd>';
+					$(".goods").append(dt+dd);
+				});
+					
+			});
+		}); 
+		
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); 
+			return null;
+		}
+	</script>
+</body>
+</html>

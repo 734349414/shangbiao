@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* 初始化 */
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
+body,button,input,select,textarea{font:16px/1.5 \5FAE\8F6F\96c5\9ED1}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal}
+ol,ul{list-style:none}
+a{text-decoration:none;color: #333}
+a:hover{text-decoration:none;}
+img{border:0}
+table{border-collapse:collapse;border-spacing:0}
+
+body{width: 100%;max-width: 1000px;margin: 0 auto}
+h1{text-align: center;font-size: 30px;padding: 30px 0 10px 0;color: red;border-bottom: 4px solid red;font-weight: normal;}
+h2{font-weight: normal;margin-top: 20px}
+h4{font-size: 24px}
+p{font-weight: 600;font-size: 20px}
+form{margin: 20px 0;}
+span{padding-right: 10px}
+.txt{margin-left:10px;padding:0;width:300px;height:30px;border:1px solid #3294d5}
+.btn{width:50px;height:34px;border:1px solid #eee;border-left:none;background:#3294d5;color: #fff}
+
+.totallist li{border:1px solid #eee;margin:3px 0;padding:5px;}
+.totallist li:hover{border:1px solid #666;background:#eee;}
+.totallist li a{color:blue;}
+
+.glist li{color:blue;border:1px solid #eee;padding:3px;margin:3px 0;}
+.glist li a{color:#000;}
+.glist li a:hover{text-decoration:underline;color:red;}
+
+.goods{border-bottom:1px solid #eee;padding-bottom:10px;}
+.goods dt{text-align:center;margin:20px 0;font-weight:bold;}
+.goods dt a{color:blue;font-size:16px;}
+.goods dt a span{border:1px solid blue;padding:3px;}
+.goods dd b{background:red;color:#fff;padding:1px;}
+
+.rlist li{color:blue;border:1px solid #eee;padding:3px;margin:3px 0;}
+.rlist li a{color:#000;}
+.rlist li a:hover{text-decoration:underline;color:red;}
+

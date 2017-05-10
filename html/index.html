@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>类似商品和服务区分表 2016版</title>
+	<link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+	<h1>类似商品和服务区分表 2016版</h1>
+	<form>
+		<span>查找商品</span>
+		<input type="text" class="txt"><input type="button" value="查找" class="btn">
+		<a href="#">【规范商品校验】</a>
+	</form>
+	<ul class="totallist">
+	</ul>
+	<h2>来源：XXXXXXXXXXXXX</h2>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			
+			$.getJSON("http://localhost/d/xapi/index.php?ct=index&ac=index",function(result){
+				$.each(result, function(i, field){
+					var indexId = field['indexId'];
+					var name = field['name'];
+					var targetUrl = "/d/html/category.html?indexId=" + indexId;
+					var li = "<li>[第 "+ indexId +" 类]<a href='"+ targetUrl +"'>" + name + "</a></li>";
+					//console.log($(".totallist"));
+					$(".totallist").append(li);
+				});
+			});
+		}); 
+
+	</script>
+</body>
+</html>
